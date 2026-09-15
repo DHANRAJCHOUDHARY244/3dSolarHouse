@@ -47,7 +47,7 @@ export function Overlay({ activeTool, onToolChange }: Props) {
         <div className={styles.brand}>
           <span className={styles.logoMark} />
           <div>
-            <div className={styles.brandName}>Meroo Solar</div>
+            <div className={styles.brandName}>DC Solutions</div>
             <div className={styles.brandSub}>{SITE.label}</div>
           </div>
         </div>

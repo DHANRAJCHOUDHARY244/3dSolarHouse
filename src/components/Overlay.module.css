@@ -36,6 +36,16 @@
   border-radius: 8px;
   background: radial-gradient(circle at 30% 30%, #ffe08a, #f5b942 45%, #e07020);
   box-shadow: 0 0 16px rgba(245, 185, 66, 0.45);
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #1a1208;
+}
+
+.logoMark::after {
+  content: 'DC';
 }
 
 .brandName {
