@@ -45,10 +45,14 @@ export function Overlay({ activeTool, onToolChange }: Props) {
     <div className={styles.root}>
       <header className={styles.topBar}>
         <div className={styles.brand}>
-          <span className={styles.logoMark} />
+          <img
+            className={styles.logoImg}
+            src="/soms-energy-logo.png"
+            alt="SOM'S ENERGY"
+          />
           <div>
-            <div className={styles.brandName}>DC Solutions</div>
-            <div className={styles.brandSub}>{SITE.label}</div>
+            <div className={styles.brandName}>SOM&apos;S ENERGY</div>
+            <div className={styles.brandSub}>The Smart Choice · {SITE.label}</div>
           </div>
         </div>
         <div className={styles.badges}>

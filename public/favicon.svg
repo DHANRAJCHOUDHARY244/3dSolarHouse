@@ -1,5 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
-  <rect width="48" height="48" rx="12" fill="#0f172a"/>
-  <rect x="1.5" y="1.5" width="45" height="45" rx="10.5" stroke="#f5b942" stroke-width="1.5" opacity="0.7"/>
-  <text x="24" y="31" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" fill="#f5b942" letter-spacing="-0.5">DC</text>
+  <rect width="48" height="48" rx="10" fill="#000"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="40" x2="0" y2="8" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2e7d32"/>
+      <stop offset="1" stop-color="#c6e85a"/>
+    </linearGradient>
+  </defs>
+  <text x="24" y="22" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="11" font-weight="900" fill="url(#g)">SOM'S</text>
+  <text x="24" y="34" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" font-weight="600" fill="#fff" letter-spacing="1.5">ENERGY</text>
 </svg>

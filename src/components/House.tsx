@@ -1,8 +1,41 @@
 import { useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { useFrame } from '@react-three/fiber'
+import { useTexture } from '@react-three/drei'
 import { useSolar } from '../state/SolarContext'
 import { TeslaEV, WallCharger } from './TeslaEV'
+
+/** SOM'S ENERGY brand sign mounted on a wall face */
+function BrandSign({
+  position,
+  rotation = [0, 0, 0],
+  width = 2.4,
+  height = 1.05,
+}: {
+  position: [number, number, number]
+  rotation?: [number, number, number]
+  width?: number
+  height?: number
+}) {
+  const texture = useTexture('/soms-energy-logo.png')
+  texture.colorSpace = THREE.SRGBColorSpace
+  texture.anisotropy = 8
+
+  return (
+    <group position={position} rotation={rotation}>
+      {/* Black backboard */}
+      <mesh castShadow position={[0, 0, -0.025]}>
+        <boxGeometry args={[width + 0.14, height + 0.14, 0.06]} />
+        <meshStandardMaterial color="#050505" metalness={0.4} roughness={0.35} />
+      </mesh>
+      {/* Logo face */}
+      <mesh position={[0, 0, 0.01]}>
+        <planeGeometry args={[width, height]} />
+        <meshStandardMaterial map={texture} roughness={0.4} metalness={0.05} toneMapped={false} />
+      </mesh>
+    </group>
+  )
+}
 
 function Glass({
   args,
@@ -663,6 +696,13 @@ export function House() {
       <Glass args={[2.4, 1.7, 0.1]} position={[-2.4, 4.3, 2.95]} nightGlow={night} />
       <Glass args={[0.1, 2.4, 3.2]} position={[6.8, 1.7, -0.2]} nightGlow={night} />
       <Glass args={[2.6, 2.0, 0.1]} position={[-6.4, 1.6, 4.65]} nightGlow={night} />
+
+      {/* SOM'S ENERGY branding — front façade + garage + timber wing */}
+      <BrandSign position={[-0.15, 2.95, 4.52]} width={2.4} height={1.05} />
+      <BrandSign position={[8.0, 2.05, 4.82]} width={2.1} height={0.9} />
+      <BrandSign position={[6.82, 2.4, 2.0]} rotation={[0, Math.PI / 2, 0]} width={1.9} height={0.82} />
+      <BrandSign position={[-6.4, 2.85, 4.62]} width={1.7} height={0.74} />
+      <BrandSign position={[4.5, 1.7, 11.15]} width={1.6} height={0.7} />
 
       {/* Frameless glass balustrade on upper terrace */}
       <mesh position={[0.8, 4.0, 3.2]}>
